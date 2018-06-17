@@ -1,0 +1,94 @@
+# Log entry formats
+#
+
+<log-entry> ::= <time-stamp> <host-name> "filterlog:" <log-data>
+
+<log-data> ::= <rule-number>,<sub-rule-number>,<anchor>,<tracker>,<real-interface>,<reason>,<action>,<direction>,<ip-version>[,<ip-specific-data>]
+
+<rule-number> ::= <integer> -- Rule number in the pf Ruleset
+<sub-rule-number> ::= <integer> -- Sub rule number in the pf Ruleset (not typically significant for general use)
+<anchor> ::= <text> -- anchor name in which the rule exists
+<tracker> ::= <integer> -- Unique ID per rule, tracker ID is stored with the rule in config.xml for user added rules, or check /tmp/rules.debug
+<real-interface> ::= <text> -- Real interface for the log entry (e.g. em0)
+<reason> ::= <text> -- Reason for the log entry (typically "match")
+<action> ::= "pass" | "block" -- Action taken that resulted in the log entry
+<direction> ::= "in" | "out" -- Direction of the logged traffic
+<ip-version> ::= "4" | "6" -- IPv4 or IPv6
+<ip-specific-data> ::= (<ipv4-specific-data>|<ipv6-specific-data>),<ip-data>[,<protocol-specific-data>]
+
+<ipv4-specific-data> ::= <tos>,<ecn>,<ttl>,<id>,<offset>,<flags>,<protocol-id>,<protocol-text>
+
+<tos> ::= <empty> | <hex> -- Type of Service identification
+<ecn> ::= <empty> | -- Explicit Congestion Notification
+<ttl> ::= <integer> -- Time To Live (TTL) of the packet
+<id> ::= <integer> -- ID of the packet
+<offset> ::= <integer> -- Fragment offset
+<flags> ::= "none" | <text> -- IP Flags (NOT TCP flags -- those are later)
+<protocol-id> ::= <integer> -- IP protocol ID (e.g. 6 for TCP, 17 for UDP)
+<protocol-text> ::= "tcp" | "udp" | "icmp" | <text> -- IP protocol text (examples given)
+<ipv6-specific-data> ::= <class>,<flow-label>,<hop-limit>,<protocol-text>,<protocol-id>
+
+<class> ::= <hex> -- ToS traffic class
+<flow-label> ::= <data> -- Flow label
+<hop-limit> ::= <integer> -- Hop Limit (similar to IPv4 TTL)
+<protocol-text> ::= "tcp" | "udp" | "icmp" | <text> -- IP protocol text (examples given)
+<protocol-id> ::= <integer> -- IP protocol ID (e.g. 6 for TCP, 17 for UDP)
+<ip-data> ::= <length>,<source-address>,<destination-address>
+
+<length> ::= <integer> -- Length of the packet in bytes
+<source-address> ::= <ip-address> -- The source IP address of the logged traffic
+<destination-address> ::= <ip-address> -- The destination IP address of the logged traffic
+<protocol-specific-data> ::= <tcp-data> | <udp-data> | <icmp-data> | <carp-data>
+
+<tcp-data> ::= <source-port>,<destination-port>,<data-length>,<tcp-flags>,<sequence-number>,<ack-number>,<tcp-window>,<urg>,<tcp-options>
+
+<source-port> ::= <integer> -- Source port number
+<destination-port> ::= <integer> -- Destination port number
+<data-length> ::= <integer> -- Data/payload length
+<tcp-flags> ::= [S][A][.][F][R][P][U][E][W] -- TCP Flags
+<sequence-number> ::= <integer> -- TCP Sequence ID
+<ack-number> ::= <integer> -- ACK number
+<tcp-window> ::= <integer> -- Windows size
+<urg> ::= <data> -- Urgent pointer data
+<tcp-options> ::= <data> -- TCP Options
+<udp-data> ::= <source-port>,<destination-port>,<data-length>
+
+<icmp-data> ::= <icmp-type>,(<echo-data> | <unreachproto-data> | <unreachport-data> | <other-unreachable-data> | <needfrag-data> | <tstamp-data> | <tstampreply-data> | <icmp-default-data>)
+
+<icmp-type> ::= <echo-type> | "unreachproto" | "unreachport" | <other-unreachable> | "needfrag" | "tstamp" | "tstampreply" | <text>
+<echo-type> ::= "request" | "reply"
+<other-unreachable> ::= "unreach" | "timexceed" | "paramprob" | "redirect" | "maskreply"
+<echo-data> ::= <icmp-id>,<icmp-sequence>
+
+<echo-id> ::= <integer> -- ID of the echo request/reply
+<echo-sequence> ::= <integer> -- Sequence number of the echo request/reply
+<unreachproto-data> ::= <icmp-destination-ip-address>,<unreachable-protocol-id>
+
+<icmp-destination-ip-address> ::= <ip-address> -- Original destination address of the connection that caused this notification
+<unreachable-protocol-id> ::= <integer> -- Protocol ID number that was unreachable
+<unreachport-data> ::= <icmp-destination-ip-address>,<unreachable-protocol-id>,<unreachable-port-number>
+
+<unreachable-port-number> ::= <integer> -- Port number that was unreachable
+<other-unreachable-data> ::= <icmp-description>
+
+<icmp-description> ::= <text> -- Description from the ICMP packet
+<needfrag-data> ::= <icmp-destination-ip-address>,<icmp-mtu>
+
+<icmp-mtu> ::= <integer> -- MTU to use for subsequent data to this destination
+<tstamp-data> ::= <icmp-id>,<icmp-sequence>
+
+<tstampreply-data> ::= <icmp-id>,<icmp-sequence>,<icmp-otime>,<icmp-rtime>,<icmp-ttime>
+
+<icmp-otime> ::= <unix-timestamp> -- Originate Timestamp
+<icmp-rtime> ::= <unix-timestamp> -- Receive Timestamp
+<icmp-ttime> ::= <unix-timestamp> -- Transmit Timestamp
+<icmp-default-data> ::= <icmp-description>
+
+<carp-data> ::= <carp-type>,<carp-ttl>,<vhid>,<version>,<advbase>,<advskew>
+
+<carp-type> ::= <text> -- Type of CARP/VRRP
+<carp-ttl> ::= <integer> -- Time to Live
+<vhid> ::= <integer> -- Virtual Host ID
+<version> ::= <integer> -- CARP Version
+<advbase> ::= <integer> -- Advertisement base timer interval (seconds)
+<advskew> ::= <integer> -- Advertisement skew (1/256 of a second)
