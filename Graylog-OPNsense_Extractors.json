@@ -271,7 +271,7 @@
         "regex_value": "^filterlog:\\s+(.*)$"
       },
       "condition_type": "regex",
-      "condition_value": "^filterlog:\\s+.*,(in|out),6,.*,(?i)(icmpv)6,.*$"
+      "condition_value": "^filterlog:\\s+.*,(in|out),6,.*,ICMPv6,.*$"
     }
   ],
   "version": "1.0.0"
