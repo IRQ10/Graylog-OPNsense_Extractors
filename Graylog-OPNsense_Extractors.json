@@ -274,5 +274,5 @@
       "condition_value": "^filterlog:\\s+.*,(in|out),6,.*,ICMPv6,.*$"
     }
   ],
-  "version": "1.0.0"
+  "version": "1.0.1"
 }
