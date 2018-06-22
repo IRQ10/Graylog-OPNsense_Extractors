@@ -19,7 +19,7 @@
         "regex_value": "^filterlog:\\s+(.*)$"
       },
       "condition_type": "regex",
-      "condition_value": "^filterlog:\\s+.*,(in|out),4,.*,(?i)(tcp),.*$"
+      "condition_value": "^filterlog:\\s+.*,(in|out),4,.*,tcp,.*$"
     },
     {
       "title": "OPNsense: IPv4 UDP",
@@ -40,7 +40,7 @@
         "regex_value": "^filterlog:\\s+(.*)$"
       },
       "condition_type": "regex",
-      "condition_value": "^filterlog:\\s+.*,(in|out),4,.*,(?i)(udp),.*$"
+      "condition_value": "^filterlog:\\s+.*,(in|out),4,.*,udp,.*$"
     },
     {
       "title": "OPNsense: IPv4 ICMP",
@@ -61,7 +61,7 @@
         "regex_value": "^filterlog:\\s+(.*)$"
       },
       "condition_type": "regex",
-      "condition_value": "^filterlog:\\s+.*,(in|out),4,.*,(?i)(icmp),.*,(?!(request|reply|unreachproto|unreachport|unreach|timexceed|paramprob|redirect|maskreply|needfrag|tstamp|tstampreply)),.*$"
+      "condition_value": "^filterlog:\\s+.*,(in|out),4,.*,icmp,.*,(?!(request|reply|unreachproto|unreachport|unreach|timexceed|paramprob|redirect|maskreply|needfrag|tstamp|tstampreply)),.*$"
     },
     {
       "title": "OPNsense: IPv4 ICMP Echo Type",
@@ -82,7 +82,7 @@
         "regex_value": "^filterlog:\\s+(.*)$"
       },
       "condition_type": "regex",
-      "condition_value": "^filterlog:\\s+.*,(in|out),4,.*,(?i)(icmp),.*,(request|reply),.*$"
+      "condition_value": "^filterlog:\\s+.*,(in|out),4,.*,icmp,.*,(request|reply),.*$"
     },
     {
       "title": "OPNsense: IPv4 ICMP Unreachproto",
@@ -103,7 +103,7 @@
         "regex_value": "^filterlog:\\s+(.*)$"
       },
       "condition_type": "regex",
-      "condition_value": "^filterlog:\\s+.*,(in|out),4,.*,(?i)(icmp),.*,unreachproto,.*$"
+      "condition_value": "^filterlog:\\s+.*,(in|out),4,.*,icmp,.*,unreachproto,.*$"
     },
     {
       "title": "OPNsense: IPv4 ICMP Unreachport",
@@ -124,7 +124,7 @@
         "regex_value": "^filterlog:\\s+(.*)$"
       },
       "condition_type": "regex",
-      "condition_value": "^filterlog:\\s+.*,(in|out),4,.*,(?i)(icmp),.*,unreachport,.*$"
+      "condition_value": "^filterlog:\\s+.*,(in|out),4,.*,icmp,.*,unreachport,.*$"
     },
     {
       "title": "OPNsense: IPv4 ICMP Other-Unreachable",
@@ -145,7 +145,7 @@
         "regex_value": "^filterlog:\\s+(.*)$"
       },
       "condition_type": "regex",
-      "condition_value": "^filterlog:\\s+.*,(in|out),4,.*,(?i)(icmp),.*,(unreach|timexceed|paramprob|redirect|maskreply),.*$"
+      "condition_value": "^filterlog:\\s+.*,(in|out),4,.*,icmp,.*,(unreach|timexceed|paramprob|redirect|maskreply),.*$"
     },
     {
       "title": "OPNsense: IPv4 ICMP Needfrag",
@@ -166,7 +166,7 @@
         "regex_value": "^filterlog:\\s+(.*)$"
       },
       "condition_type": "regex",
-      "condition_value": "^filterlog:\\s+.*,(in|out),4,.*,(?i)(icmp),.*,needfrag,.*$"
+      "condition_value": "^filterlog:\\s+.*,(in|out),4,.*,icmp,.*,needfrag,.*$"
     },
     {
       "title": "OPNsense: IPv4 ICMP Tstamp",
@@ -187,7 +187,7 @@
         "regex_value": "^filterlog:\\s+(.*)$"
       },
       "condition_type": "regex",
-      "condition_value": "^filterlog:\\s+.*,(in|out),4,.*,(?i)(icmp),.*,tstamp,.*$"
+      "condition_value": "^filterlog:\\s+.*,(in|out),4,.*,icmp,.*,tstamp,.*$"
     },
     {
       "title": "OPNsense: IPv4 ICMP Tstamp-reply",
@@ -208,7 +208,7 @@
         "regex_value": "^filterlog:\\s+(.*)$"
       },
       "condition_type": "regex",
-      "condition_value": "^filterlog:\\s+.*,(in|out),4,.*,(?i)(icmp),.*,tstampreply,.*$"
+      "condition_value": "^filterlog:\\s+.*,(in|out),4,.*,icmp,.*,tstampreply,.*$"
     },
     {
       "title": "OPNsense: IPv6 TCP",
