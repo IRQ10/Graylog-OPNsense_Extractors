@@ -16,10 +16,10 @@
       "source_field": "message",
       "target_field": "Filterlog",
       "extractor_config": {
-        "regex_value": "^filterlog:\\s+(.*)$"
+        "regex_value": "^.*\\s?filterlog:\\s+(.*)$"
       },
       "condition_type": "regex",
-      "condition_value": "^filterlog:\\s+.*,(in|out),4,.*,tcp,.*$"
+      "condition_value": "^.*\\s?filterlog:\\s+.*,(in|out),4,.*,tcp,.*$"
     },
     {
       "title": "OPNsense: IPv4 UDP",
@@ -37,10 +37,10 @@
       "source_field": "message",
       "target_field": "Filterlog",
       "extractor_config": {
-        "regex_value": "^filterlog:\\s+(.*)$"
+        "regex_value": "^.*\\s?filterlog:\\s+(.*)$"
       },
       "condition_type": "regex",
-      "condition_value": "^filterlog:\\s+.*,(in|out),4,.*,udp,.*$"
+      "condition_value": "^.*\\s?filterlog:\\s+.*,(in|out),4,.*,udp,.*$"
     },
     {
       "title": "OPNsense: IPv4 ICMP",
@@ -58,10 +58,10 @@
       "source_field": "message",
       "target_field": "Filterlog",
       "extractor_config": {
-        "regex_value": "^filterlog:\\s+(.*)$"
+        "regex_value": "^.*\\s?filterlog:\\s+(.*)$"
       },
       "condition_type": "regex",
-      "condition_value": "^filterlog:\\s+.*,(in|out),4,.*,icmp,.*,(?!(request|reply|unreachproto|unreachport|unreach|timexceed|paramprob|redirect|maskreply|needfrag|tstamp|tstampreply)),.*$"
+      "condition_value": "^.*\\s?filterlog:\\s+.*,(in|out),4,.*,icmp,.*,(?!(request|reply|unreachproto|unreachport|unreach|timexceed|paramprob|redirect|maskreply|needfrag|tstamp|tstampreply)),.*$"
     },
     {
       "title": "OPNsense: IPv4 ICMP Echo Type",
@@ -79,10 +79,10 @@
       "source_field": "message",
       "target_field": "Filterlog",
       "extractor_config": {
-        "regex_value": "^filterlog:\\s+(.*)$"
+        "regex_value": "^.*\\s?filterlog:\\s+(.*)$"
       },
       "condition_type": "regex",
-      "condition_value": "^filterlog:\\s+.*,(in|out),4,.*,icmp,.*,(request|reply),.*$"
+      "condition_value": "^.*\\s?filterlog:\\s+.*,(in|out),4,.*,icmp,.*,(request|reply),.*$"
     },
     {
       "title": "OPNsense: IPv4 ICMP Unreachproto",
@@ -100,10 +100,10 @@
       "source_field": "message",
       "target_field": "Filterlog",
       "extractor_config": {
-        "regex_value": "^filterlog:\\s+(.*)$"
+        "regex_value": "^.*\\s?filterlog:\\s+(.*)$"
       },
       "condition_type": "regex",
-      "condition_value": "^filterlog:\\s+.*,(in|out),4,.*,icmp,.*,unreachproto,.*$"
+      "condition_value": "^.*\\s?filterlog:\\s+.*,(in|out),4,.*,icmp,.*,unreachproto,.*$"
     },
     {
       "title": "OPNsense: IPv4 ICMP Unreachport",
@@ -121,10 +121,10 @@
       "source_field": "message",
       "target_field": "Filterlog",
       "extractor_config": {
-        "regex_value": "^filterlog:\\s+(.*)$"
+        "regex_value": "^.*\\s?filterlog:\\s+(.*)$"
       },
       "condition_type": "regex",
-      "condition_value": "^filterlog:\\s+.*,(in|out),4,.*,icmp,.*,unreachport,.*$"
+      "condition_value": "^.*\\s?filterlog:\\s+.*,(in|out),4,.*,icmp,.*,unreachport,.*$"
     },
     {
       "title": "OPNsense: IPv4 ICMP Other-Unreachable",
@@ -142,10 +142,10 @@
       "source_field": "message",
       "target_field": "Filterlog",
       "extractor_config": {
-        "regex_value": "^filterlog:\\s+(.*)$"
+        "regex_value": "^.*\\s?filterlog:\\s+(.*)$"
       },
       "condition_type": "regex",
-      "condition_value": "^filterlog:\\s+.*,(in|out),4,.*,icmp,.*,(unreach|timexceed|paramprob|redirect|maskreply),.*$"
+      "condition_value": "^.*\\s?filterlog:\\s+.*,(in|out),4,.*,icmp,.*,(unreach|timexceed|paramprob|redirect|maskreply),.*$"
     },
     {
       "title": "OPNsense: IPv4 ICMP Needfrag",
@@ -163,10 +163,10 @@
       "source_field": "message",
       "target_field": "Filterlog",
       "extractor_config": {
-        "regex_value": "^filterlog:\\s+(.*)$"
+        "regex_value": "^.*\\s?filterlog:\\s+(.*)$"
       },
       "condition_type": "regex",
-      "condition_value": "^filterlog:\\s+.*,(in|out),4,.*,icmp,.*,needfrag,.*$"
+      "condition_value": "^.*\\s?filterlog:\\s+.*,(in|out),4,.*,icmp,.*,needfrag,.*$"
     },
     {
       "title": "OPNsense: IPv4 ICMP Tstamp",
@@ -184,10 +184,10 @@
       "source_field": "message",
       "target_field": "Filterlog",
       "extractor_config": {
-        "regex_value": "^filterlog:\\s+(.*)$"
+        "regex_value": "^.*\\s?filterlog:\\s+(.*)$"
       },
       "condition_type": "regex",
-      "condition_value": "^filterlog:\\s+.*,(in|out),4,.*,icmp,.*,tstamp,.*$"
+      "condition_value": "^.*\\s?filterlog:\\s+.*,(in|out),4,.*,icmp,.*,tstamp,.*$"
     },
     {
       "title": "OPNsense: IPv4 ICMP Tstamp-reply",
@@ -205,10 +205,10 @@
       "source_field": "message",
       "target_field": "Filterlog",
       "extractor_config": {
-        "regex_value": "^filterlog:\\s+(.*)$"
+        "regex_value": "^.*\\s?filterlog:\\s+(.*)$"
       },
       "condition_type": "regex",
-      "condition_value": "^filterlog:\\s+.*,(in|out),4,.*,icmp,.*,tstampreply,.*$"
+      "condition_value": "^.*\\s?filterlog:\\s+.*,(in|out),4,.*,icmp,.*,tstampreply,.*$"
     },
     {
       "title": "OPNsense: IPv6 TCP",
@@ -226,10 +226,10 @@
       "source_field": "message",
       "target_field": "Filterlog",
       "extractor_config": {
-        "regex_value": "^filterlog:\\s+(.*)$"
+        "regex_value": "^.*\\s?filterlog:\\s+(.*)$"
       },
       "condition_type": "regex",
-      "condition_value": "^filterlog:\\s+.*,(in|out),6,.*,(?i)(tcp),.*$"
+      "condition_value": "^.*\\s?filterlog:\\s+.*,(in|out),6,.*,(?i)(tcp),.*$"
     },
     {
       "title": "OPNsense: IPv6 UDP",
@@ -247,10 +247,10 @@
       "source_field": "message",
       "target_field": "Filterlog",
       "extractor_config": {
-        "regex_value": "^filterlog:\\s+(.*)$"
+        "regex_value": "^.*\\s?filterlog:\\s+(.*)$"
       },
       "condition_type": "regex",
-      "condition_value": "^filterlog:\\s+.*,(in|out),6,.*,(?i)(udp),.*$"
+      "condition_value": "^.*\\s?filterlog:\\s+.*,(in|out),6,.*,(?i)(udp),.*$"
     },
     {
       "title": "OPNsense: IPv6 ICMP",
@@ -268,11 +268,11 @@
       "source_field": "message",
       "target_field": "Filterlog",
       "extractor_config": {
-        "regex_value": "^filterlog:\\s+(.*)$"
+        "regex_value": "^.*\\s?filterlog:\\s+(.*)$"
       },
       "condition_type": "regex",
-      "condition_value": "^filterlog:\\s+.*,(in|out),6,.*,ICMPv6,.*$"
+      "condition_value": "^.*\\s?filterlog:\\s+.*,(in|out),6,.*,ICMPv6,.*$"
     }
   ],
-  "version": "1.0.1"
+  "version": "1.0.2"
 }
