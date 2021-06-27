@@ -1,3 +1,6 @@
+# Note - These are old and no longer accurate
+# Need to new reference guide for OPNsense v21
+###############################################################3 
 # Log entry formats
 #
 
