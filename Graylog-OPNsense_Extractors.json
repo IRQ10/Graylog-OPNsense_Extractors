@@ -7,208 +7,20 @@
         {
           "type": "csv",
           "config": {
-            "column_header": "rule-number,sub-rule-number,anchor,tracker,interface,reason,action,direction,ipversion,tos,ecn,ttl,id,offset,flags,protocolid,protocol,length,src_ip,dst_ip,src_port,dst_port,datalength,tcp-flags,Sequence,ack,window,urg,options"
+            "column_header": "rule-number,sub-rule-number,anchor,tracker,interface,reason,action,direction,ip-version,tos,ecn,ttl,id,offset,ip-flags,protocol-id,protocol-name,length,src-ip,dst-ip,src-port,dst-port,datalen,tcp-flags,sequence,f1,f2,f3,tcp-options,opnsense-rid",
+            "trim_leading_whitespace": true
           }
         }
       ],
       "order": 0,
       "cursor_strategy": "copy",
       "source_field": "message",
-      "target_field": "Filterlog",
+      "target_field": "filterlog_ipv4_tcp",
       "extractor_config": {
-        "regex_value": "^.*\\s?filterlog:\\s+(.*)$"
+        "regex_value": "^(?i).*\\sfilterlog\\[[0-9]+\\]:\\s(.*)$"
       },
       "condition_type": "regex",
-      "condition_value": "^.*\\s?filterlog:\\s+.*,(in|out),4,.*,tcp,.*$"
-    },
-    {
-      "title": "OPNsense: IPv4 UDP",
-      "extractor_type": "regex",
-      "converters": [
-        {
-          "type": "csv",
-          "config": {
-            "column_header": "rule-number,sub-rule-number,anchor,tracker,interface,reason,action,direction,ipversion,tos,ecn,ttl,id,offset,flags,protocolid,protocol,length,src_ip,dst_ip,src_port,dst_port,datalength"
-          }
-        }
-      ],
-      "order": 1,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "Filterlog",
-      "extractor_config": {
-        "regex_value": "^.*\\s?filterlog:\\s+(.*)$"
-      },
-      "condition_type": "regex",
-      "condition_value": "^.*\\s?filterlog:\\s+.*,(in|out),4,.*,udp,.*$"
-    },
-    {
-      "title": "OPNsense: IPv4 ICMP",
-      "extractor_type": "regex",
-      "converters": [
-        {
-          "type": "csv",
-          "config": {
-            "column_header": "rule-number,sub-rule-number,anchor,tracker,interface,reason,action,direction,ipversion,tos,ecn,ttl,id,offset,flags,protocolid,protocol,length,src_ip,dst_ip,icmp-type,icmp-desc"
-          }
-        }
-      ],
-      "order": 2,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "Filterlog",
-      "extractor_config": {
-        "regex_value": "^.*\\s?filterlog:\\s+(.*)$"
-      },
-      "condition_type": "regex",
-      "condition_value": "^.*\\s?filterlog:\\s+.*,(in|out),4,.*,icmp,.*,(?!(request|reply|unreachproto|unreachport|unreach|timexceed|paramprob|redirect|maskreply|needfrag|tstamp|tstampreply)),.*$"
-    },
-    {
-      "title": "OPNsense: IPv4 ICMP Echo Type",
-      "extractor_type": "regex",
-      "converters": [
-        {
-          "type": "csv",
-          "config": {
-            "column_header": "rule-number,sub-rule-number,anchor,tracker,interface,reason,action,direction,ipversion,tos,ecn,ttl,id,offset,flags,protocolid,protocol,length,src_ip,dst_ip,icmp-type,icmp-id,icmp-sequence"
-          }
-        }
-      ],
-      "order": 3,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "Filterlog",
-      "extractor_config": {
-        "regex_value": "^.*\\s?filterlog:\\s+(.*)$"
-      },
-      "condition_type": "regex",
-      "condition_value": "^.*\\s?filterlog:\\s+.*,(in|out),4,.*,icmp,.*,(request|reply),.*$"
-    },
-    {
-      "title": "OPNsense: IPv4 ICMP Unreachproto",
-      "extractor_type": "regex",
-      "converters": [
-        {
-          "type": "csv",
-          "config": {
-            "column_header": "rule-number,sub-rule-number,anchor,tracker,interface,reason,action,direction,ipversion,tos,ecn,ttl,id,offset,flags,protocolid,protocol,length,src_ip,dst_ip,icmp-type,icmp-dst-ip,icmp-protocol-id"
-          }
-        }
-      ],
-      "order": 4,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "Filterlog",
-      "extractor_config": {
-        "regex_value": "^.*\\s?filterlog:\\s+(.*)$"
-      },
-      "condition_type": "regex",
-      "condition_value": "^.*\\s?filterlog:\\s+.*,(in|out),4,.*,icmp,.*,unreachproto,.*$"
-    },
-    {
-      "title": "OPNsense: IPv4 ICMP Unreachport",
-      "extractor_type": "regex",
-      "converters": [
-        {
-          "type": "csv",
-          "config": {
-            "column_header": "rule-number,sub-rule-number,anchor,tracker,interface,reason,action,direction,ipversion,tos,ecn,ttl,id,offset,flags,protocolid,protocol,length,src_ip,dst_ip,icmp-type,icmp-dst-ip,icmp-protocol-id,icmp-port"
-          }
-        }
-      ],
-      "order": 5,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "Filterlog",
-      "extractor_config": {
-        "regex_value": "^.*\\s?filterlog:\\s+(.*)$"
-      },
-      "condition_type": "regex",
-      "condition_value": "^.*\\s?filterlog:\\s+.*,(in|out),4,.*,icmp,.*,unreachport,.*$"
-    },
-    {
-      "title": "OPNsense: IPv4 ICMP Other-Unreachable",
-      "extractor_type": "regex",
-      "converters": [
-        {
-          "type": "csv",
-          "config": {
-            "column_header": "rule-number,sub-rule-number,anchor,tracker,interface,reason,action,direction,ipversion,tos,ecn,ttl,id,offset,flags,protocolid,protocol,length,src_ip,dst_ip,icmp-type,icmp-desc"
-          }
-        }
-      ],
-      "order": 6,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "Filterlog",
-      "extractor_config": {
-        "regex_value": "^.*\\s?filterlog:\\s+(.*)$"
-      },
-      "condition_type": "regex",
-      "condition_value": "^.*\\s?filterlog:\\s+.*,(in|out),4,.*,icmp,.*,(unreach|timexceed|paramprob|redirect|maskreply),.*$"
-    },
-    {
-      "title": "OPNsense: IPv4 ICMP Needfrag",
-      "extractor_type": "regex",
-      "converters": [
-        {
-          "type": "csv",
-          "config": {
-            "column_header": "rule-number,sub-rule-number,anchor,tracker,interface,reason,action,direction,ipversion,tos,ecn,ttl,id,offset,flags,protocolid,protocol,length,src_ip,dst_ip,icmp-type,icmp-dst-ip,icmp-mtu"
-          }
-        }
-      ],
-      "order": 7,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "Filterlog",
-      "extractor_config": {
-        "regex_value": "^.*\\s?filterlog:\\s+(.*)$"
-      },
-      "condition_type": "regex",
-      "condition_value": "^.*\\s?filterlog:\\s+.*,(in|out),4,.*,icmp,.*,needfrag,.*$"
-    },
-    {
-      "title": "OPNsense: IPv4 ICMP Tstamp",
-      "extractor_type": "regex",
-      "converters": [
-        {
-          "type": "csv",
-          "config": {
-            "column_header": "rule-number,sub-rule-number,anchor,tracker,interface,reason,action,direction,ipversion,tos,ecn,ttl,id,offset,flags,protocolid,protocol,length,src_ip,dst_ip,icmp-type,icmp-id,icmp-sequence"
-          }
-        }
-      ],
-      "order": 8,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "Filterlog",
-      "extractor_config": {
-        "regex_value": "^.*\\s?filterlog:\\s+(.*)$"
-      },
-      "condition_type": "regex",
-      "condition_value": "^.*\\s?filterlog:\\s+.*,(in|out),4,.*,icmp,.*,tstamp,.*$"
-    },
-    {
-      "title": "OPNsense: IPv4 ICMP Tstamp-reply",
-      "extractor_type": "regex",
-      "converters": [
-        {
-          "type": "csv",
-          "config": {
-            "column_header": "rule-number,sub-rule-number,anchor,tracker,interface,reason,action,direction,ipversion,tos,ecn,ttl,id,offset,flags,protocolid,protocol,length,src_ip,dst_ip,icmp-type,icmp-id,icmp-sequence,icmp-otime,icmp-rtime,icmp-ttime"
-          }
-        }
-      ],
-      "order": 9,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "Filterlog",
-      "extractor_config": {
-        "regex_value": "^.*\\s?filterlog:\\s+(.*)$"
-      },
-      "condition_type": "regex",
-      "condition_value": "^.*\\s?filterlog:\\s+.*,(in|out),4,.*,icmp,.*,tstampreply,.*$"
+      "condition_value": "^(?i).*\\sfilterlog\\[[0-9]+\\]:\\s(.*,(in|out),4,.*,tcp,.*)$"
     },
     {
       "title": "OPNsense: IPv6 TCP",
@@ -217,19 +29,42 @@
         {
           "type": "csv",
           "config": {
-            "column_header": "rule-number,sub-rule-number,anchor,tracker,interface,reason,action,direction,ipversion,class,flowlabel,hoplimit,protocol,protocolid,length,src_ip,dst_ip,src_port,dst_port,datalength,tcp-flags,sequence,ack,window,urg,options"
+            "column_header": "rule-number,sub-rule-number,anchor,tracker,interface,reason,action,direction,ipversion,class,flowlabel,hoplimit,protocol,protocolid,length,src-ip,dst-ip,src-port,dst-port,datalength,tcp-flags,sequence,ack,window,urg,options,opnsense-rid",
+            "trim_leading_whitespace": true
           }
         }
       ],
-      "order": 10,
+      "order": 1,
       "cursor_strategy": "copy",
       "source_field": "message",
-      "target_field": "Filterlog",
+      "target_field": "filterlog_ipv6_tcp",
       "extractor_config": {
-        "regex_value": "^.*\\s?filterlog:\\s+(.*)$"
+        "regex_value": "^(?i).*\\sfilterlog\\[[0-9]+\\]:\\s(.*)$"
       },
       "condition_type": "regex",
-      "condition_value": "^.*\\s?filterlog:\\s+.*,(in|out),6,.*,(?i)(tcp),.*$"
+      "condition_value": "^(?i).*\\sfilterlog\\[[0-9]+\\]:\\s(.*,(in|out),6,.*,tcp,.*)$"
+    },
+    {
+      "title": "OPNsense: IPv4 UDP",
+      "extractor_type": "regex",
+      "converters": [
+        {
+          "type": "csv",
+          "config": {
+            "column_header": "rule-number,sub-rule-number,anchor,tracker,interface,reason,action,direction,ip-version,tos,ecn,ttl,id,offset,flags,protocol-id,protocol-name,length,src-ip,dst-ip,src-port,dst-port,datalen,opnsense-rid",
+            "trim_leading_whitespace": true
+          }
+        }
+      ],
+      "order": 2,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "filterlog_ipv4_udp",
+      "extractor_config": {
+        "regex_value": "^(?i).*\\sfilterlog\\[[0-9]+\\]:\\s(.*)$"
+      },
+      "condition_type": "regex",
+      "condition_value": "^(?i).*\\sfilterlog\\[[0-9]+\\]:\\s(.*,(in|out),4,.*,udp,.*)$"
     },
     {
       "title": "OPNsense: IPv6 UDP",
@@ -238,41 +73,67 @@
         {
           "type": "csv",
           "config": {
-            "column_header": "rule-number,sub-rule-number,anchor,tracker,interface,reason,action,direction,ipversion,class,flowlabel,hoplimit,protocol,protocolid,length,src_ip,dst_ip,src_port,dst_port,datalength"
+            "column_header": "rule-number,sub-rule-number,anchor,tracker,interface,reason,action,direction,ip-version,class,flowlabel,hoplimit,protocol,protocolid,length,src-ip,dst-ip,src-port,dst-port,datalength,opnsense-rid"
           }
         }
       ],
-      "order": 11,
+      "order": 3,
       "cursor_strategy": "copy",
       "source_field": "message",
-      "target_field": "Filterlog",
+      "target_field": "filterlog_ipv6_udp",
       "extractor_config": {
-        "regex_value": "^.*\\s?filterlog:\\s+(.*)$"
+        "regex_value": "^(?i).*\\sfilterlog\\[[0-9]+\\]:\\s(.*)$"
       },
       "condition_type": "regex",
-      "condition_value": "^.*\\s?filterlog:\\s+.*,(in|out),6,.*,(?i)(udp),.*$"
+      "condition_value": "^(?i).*\\sfilterlog\\[[0-9]+\\]:\\s(.*,(in|out),6,.*,udp,.*)$"
+    },
+    {
+      "title": "OPNsense: IPv4 ICMP",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 4,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "filterlog_ipv4_icmp",
+      "extractor_config": {
+        "regex_value": "^(?i).*\\sfilterlog\\[[0-9]+\\]:\\s(.*)$"
+      },
+      "condition_type": "regex",
+      "condition_value": "^(?i).*\\sfilterlog\\[[0-9]+\\]:\\s(.*,(in|out),4,.*,icmp,.*)$"
     },
     {
       "title": "OPNsense: IPv6 ICMP",
       "extractor_type": "regex",
-      "converters": [
-        {
-          "type": "csv",
-          "config": {
-            "column_header": "rule-number,sub-rule-number,anchor,tracker,interface,reason,action,direction,ipversion,class,flowlabel,hoplimit,protocol,protocolid,length,src_ip,dst_ip,options"
-          }
-        }
-      ],
-      "order": 12,
+      "converters": [],
+      "order": 5,
       "cursor_strategy": "copy",
       "source_field": "message",
-      "target_field": "Filterlog",
+      "target_field": "filterlog_ipv6_icmp",
       "extractor_config": {
-        "regex_value": "^.*\\s?filterlog:\\s+(.*)$"
+        "regex_value": "^(?i).*\\sfilterlog\\[[0-9]+\\]:\\s(.*)$"
       },
       "condition_type": "regex",
-      "condition_value": "^.*\\s?filterlog:\\s+.*,(in|out),6,.*,ICMPv6,.*$"
+      "condition_value": "^(?i).*\\sfilterlog\\[[0-9]+\\]:\\s(.*,(in|out),6,.*,ipv6-icmp,.*)$"
+    },
+    {
+      "title": "OPNsense Unbound DNS",
+      "extractor_type": "regex",
+      "converters": [
+        {
+          "type": "lowercase",
+          "config": {}
+        }
+      ],
+      "order": 6,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "unbound_dns_query",
+      "extractor_config": {
+        "regex_value": "^.*\\s(?i)unbound\\[[0-9]+\\]:\\s\\[[0-9]+:[0-9]+\\]\\sinfo:\\s.*(\\s.*\\.\\s).*$"
+      },
+      "condition_type": "none",
+      "condition_value": ""
     }
   ],
-  "version": "1.0.2"
+  "version": "4.1.0"
 }
