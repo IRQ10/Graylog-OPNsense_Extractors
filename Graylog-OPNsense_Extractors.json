@@ -7,7 +7,7 @@
         {
           "type": "csv",
           "config": {
-            "column_header": "rule-number,sub-rule-number,anchor,tracker,interface,reason,action,direction,ip-version,tos,ecn,ttl,id,offset,ip-flags,protocol-id,protocol-name,length,src-ip,dst-ip,src-port,dst-port,datalen,tcp-flags,sequence,f1,f2,f3,tcp-options,opnsense-rid",
+            "column_header": "rule-number,sub-rule-number,anchor,tracker,interface,reason,action,direction,ip-version,tos,ecn,ttl,id,offset,ip-flags,protocol-id,protocol-name,length,src-ip,dst-ip,src-port,dst-port,datalen,tcp-flags,sequence,f1,f2,tcp-options,opnsense-rid",
             "trim_leading_whitespace": true
           }
         }
@@ -29,7 +29,7 @@
         {
           "type": "csv",
           "config": {
-            "column_header": "rule-number,sub-rule-number,anchor,tracker,interface,reason,action,direction,ipversion,class,flowlabel,hoplimit,protocol,protocolid,length,src-ip,dst-ip,src-port,dst-port,datalength,tcp-flags,sequence,ack,window,urg,options,opnsense-rid",
+            "column_header": "rule-number,sub-rule-number,anchor,tracker,interface,reason,action,direction,ipversion,class,flowlabel,hoplimit,protocol-name,protocol-id,length,src-ip,dst-ip,src-port,dst-port,datalength,tcp-flags,sequence,ack,window,urg,options,opnsense-rid",
             "trim_leading_whitespace": true
           }
         }
@@ -51,7 +51,7 @@
         {
           "type": "csv",
           "config": {
-            "column_header": "rule-number,sub-rule-number,anchor,tracker,interface,reason,action,direction,ip-version,tos,ecn,ttl,id,offset,flags,protocol-id,protocol-name,length,src-ip,dst-ip,src-port,dst-port,datalen,opnsense-rid",
+            "column_header": "rule-number,sub-rule-number,anchor,tracker,interface,reason,action,direction,ip-version,tos,ecn,ttl,id,offset,flags,protocol-id,protocol-name,length,src-ip,dst-ip,src-port,dst-port,opnsense-rid",
             "trim_leading_whitespace": true
           }
         }
@@ -73,7 +73,7 @@
         {
           "type": "csv",
           "config": {
-            "column_header": "rule-number,sub-rule-number,anchor,tracker,interface,reason,action,direction,ip-version,class,flowlabel,hoplimit,protocol,protocolid,length,src-ip,dst-ip,src-port,dst-port,datalength,opnsense-rid"
+            "column_header": "rule-number,sub-rule-number,anchor,tracker,interface,reason,action,direction,ip-version,class,flowlabel,hoplimit,protocol-name,protocol-id,length,src-ip,dst-ip,src-port,dst-port,opnsense-rid"
           }
         }
       ],
@@ -135,5 +135,5 @@
       "condition_value": ""
     }
   ],
-  "version": "4.1.0"
+  "version": "4.2.0"
 }
