@@ -1,7 +1,7 @@
 {
   "extractors": [
     {
-      "title": "OPNsense: IPv4 UDP",
+      "title": "OPNsense: RFC5424 IPv4 UDP",
       "extractor_type": "regex",
       "converters": [
         {
@@ -14,16 +14,16 @@
       ],
       "order": 2,
       "cursor_strategy": "copy",
-      "source_field": "message",
+      "source_field": "full_message",
       "target_field": "filterlog_ipv4_udp",
       "extractor_config": {
-        "regex_value": "^(?i).*\\sfilterlog\\[[0-9]+\\]:\\s(.*)$"
+        "regex_value": "^(?i).*\\sfilterlog.+\\[.+\\]\\s(.*)$"
       },
       "condition_type": "regex",
-      "condition_value": "^(?i).*\\sfilterlog\\[[0-9]+\\]:\\s(.*,(in|out),4,.*,udp,.*)$"
+      "condition_value": "^(?i).*\\sfilterlog.+\\[.+\\]\\s(.*,(in|out),4,.*,udp,.*)$"
     },
     {
-      "title": "OPNsense: IPv4 TCP",
+      "title": "OPNsense: RFC5424 IPv4 TCP",
       "extractor_type": "regex",
       "converters": [
         {
@@ -36,16 +36,16 @@
       ],
       "order": 0,
       "cursor_strategy": "copy",
-      "source_field": "message",
+      "source_field": "full_message",
       "target_field": "filterlog_ipv4_tcp",
       "extractor_config": {
-        "regex_value": "^(?i).*\\sfilterlog\\[[0-9]+\\]:\\s(.*)$"
+        "regex_value": "^(?i).*\\sfilterlog.+\\[.+\\]\\s(.*)$"
       },
       "condition_type": "regex",
-      "condition_value": "^(?i).*\\sfilterlog\\[[0-9]+\\]:\\s(.*,(in|out),4,.*,tcp,.*)$"
+      "condition_value": "^(?i).*\\sfilterlog.+\\[.+\\]\\s(.*,(in|out),4,.*,tcp,.*)$"
     },
     {
-      "title": "OPNsense: IPv6 TCP",
+      "title": "OPNsense: RFC5424 IPv6 TCP",
       "extractor_type": "regex",
       "converters": [
         {
@@ -58,16 +58,16 @@
       ],
       "order": 1,
       "cursor_strategy": "copy",
-      "source_field": "message",
+      "source_field": "full_message",
       "target_field": "filterlog_ipv6_tcp",
       "extractor_config": {
-        "regex_value": "^(?i).*\\sfilterlog\\[[0-9]+\\]:\\s(.*)$"
+        "regex_value": "^(?i).*\\sfilterlog.+\\[.+\\]\\s(.*)$"
       },
       "condition_type": "regex",
-      "condition_value": "^(?i).*\\sfilterlog\\[[0-9]+\\]:\\s(.*,(in|out),6,.*,tcp,.*)$"
+      "condition_value": "^(?i).*\\sfilterlog.+\\[.+\\]\\s(.*,(in|out),6,.*,tcp,.*)$"
     },
     {
-      "title": "OPNsense: IPv4 ICMP",
+      "title": "OPNsense: RFC5424 IPv4 ICMP",
       "extractor_type": "regex",
       "converters": [
         {
@@ -79,16 +79,16 @@
       ],
       "order": 4,
       "cursor_strategy": "copy",
-      "source_field": "message",
+      "source_field": "full_message",
       "target_field": "filterlog_ipv4_icmp",
       "extractor_config": {
-        "regex_value": "^(?i).*\\sfilterlog\\[[0-9]+\\]:\\s(.*)$"
+        "regex_value": "^(?i).*\\sfilterlog.+\\[.+\\]\\s(.*)$"
       },
       "condition_type": "regex",
-      "condition_value": "^(?i).*\\sfilterlog\\[[0-9]+\\]:\\s(.*,(in|out),4,.*,icmp,.*)$"
+      "condition_value": "^(?i).*\\sfilterlog.+\\[.+\\]\\s(.*,(in|out),4,.*,icmp,.*)$"
     },
     {
-      "title": "OPNsense: IPv6 UDP",
+      "title": "OPNsense: RFC5424 IPv6 UDP",
       "extractor_type": "regex",
       "converters": [
         {
@@ -100,16 +100,16 @@
       ],
       "order": 3,
       "cursor_strategy": "copy",
-      "source_field": "message",
+      "source_field": "full_message",
       "target_field": "filterlog_ipv6_udp",
       "extractor_config": {
-        "regex_value": "^(?i).*\\sfilterlog\\[[0-9]+\\]:\\s(.*)$"
+        "regex_value": "^(?i).*\\sfilterlog.+\\[.+\\]\\s(.*)$"
       },
       "condition_type": "regex",
-      "condition_value": "^(?i).*\\sfilterlog\\[[0-9]+\\]:\\s(.*,(in|out),6,.*,udp,.*)$"
+      "condition_value": "^(?i).*\\sfilterlog.+\\[.+\\]\\s(.*,(in|out),6,.*,udp,.*)$"
     },
     {
-      "title": "OPNsense: IPv6 ICMP",
+      "title": "OPNsense: RFC5424 IPv6 ICMP",
       "extractor_type": "regex",
       "converters": [
         {
@@ -121,13 +121,13 @@
       ],
       "order": 5,
       "cursor_strategy": "copy",
-      "source_field": "message",
+      "source_field": "full_message",
       "target_field": "filterlog_ipv6_icmp",
       "extractor_config": {
-        "regex_value": "^(?i).*\\sfilterlog\\[[0-9]+\\]:\\s(.*)$"
+        "regex_value": "^(?i).*\\sfilterlog.+\\[.+\\]\\s(.*)$"
       },
       "condition_type": "regex",
-      "condition_value": "^(?i).*\\sfilterlog\\[[0-9]+\\]:\\s(.*,(in|out),6,.*,icmp,.*)$"
+      "condition_value": "^(?i).*\\sfilterlog.+\\[.+\\]\\s(.*,(in|out),6,.*,icmp,.*)$"
     }
   ],
   "version": "4.2.2"
