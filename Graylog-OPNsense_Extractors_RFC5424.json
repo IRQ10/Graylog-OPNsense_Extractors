@@ -17,10 +17,10 @@
       "source_field": "full_message",
       "target_field": "filterlog_ipv4_udp",
       "extractor_config": {
-        "regex_value": "^(?i).*\\sfilterlog.+\\[.+\\]\\s(.*)$"
+        "regex_value": "^(?i).*\sfilterlog.*\[.+\]\s(.*)$"
       },
       "condition_type": "regex",
-      "condition_value": "^(?i).*\\sfilterlog.+\\[.+\\]\\s(.*,(in|out),4,.*,udp,.*)$"
+      "condition_value": "^(?i).*\sfilterlog.+\[.+\]\s(.*,(in|out),4,.*,udp,.*)$"
     },
     {
       "title": "OPNsense: RFC5424 IPv4 TCP",
@@ -39,10 +39,10 @@
       "source_field": "full_message",
       "target_field": "filterlog_ipv4_tcp",
       "extractor_config": {
-        "regex_value": "^(?i).*\\sfilterlog.+\\[.+\\]\\s(.*)$"
+        "regex_value": "^(?i).*\sfilterlog.*\[.+\]\s(.*)$"
       },
       "condition_type": "regex",
-      "condition_value": "^(?i).*\\sfilterlog.+\\[.+\\]\\s(.*,(in|out),4,.*,tcp,.*)$"
+      "condition_value": "^(?i).*\sfilterlog.+\[.+\]\s(.*,(in|out),4,.*,tcp,.*)$"
     },
     {
       "title": "OPNsense: RFC5424 IPv6 TCP",
@@ -61,10 +61,10 @@
       "source_field": "full_message",
       "target_field": "filterlog_ipv6_tcp",
       "extractor_config": {
-        "regex_value": "^(?i).*\\sfilterlog.+\\[.+\\]\\s(.*)$"
+        "regex_value": "^(?i).*\sfilterlog.*\[.+\]\s(.*)$"
       },
       "condition_type": "regex",
-      "condition_value": "^(?i).*\\sfilterlog.+\\[.+\\]\\s(.*,(in|out),6,.*,tcp,.*)$"
+      "condition_value": "^(?i).*\sfilterlog.+\[.+\]\s(.*,(in|out),6,.*,tcp,.*)$"
     },
     {
       "title": "OPNsense: RFC5424 IPv4 ICMP",
@@ -82,10 +82,10 @@
       "source_field": "full_message",
       "target_field": "filterlog_ipv4_icmp",
       "extractor_config": {
-        "regex_value": "^(?i).*\\sfilterlog.+\\[.+\\]\\s(.*)$"
+        "regex_value": "^(?i).*\sfilterlog.*\[.+\]\s(.*)$"
       },
       "condition_type": "regex",
-      "condition_value": "^(?i).*\\sfilterlog.+\\[.+\\]\\s(.*,(in|out),4,.*,icmp,.*)$"
+      "condition_value": "^(?i).*\sfilterlog.+\[.+\]\s(.*,(in|out),4,.*,icmp,.*)$"
     },
     {
       "title": "OPNsense: RFC5424 IPv6 UDP",
@@ -103,10 +103,10 @@
       "source_field": "full_message",
       "target_field": "filterlog_ipv6_udp",
       "extractor_config": {
-        "regex_value": "^(?i).*\\sfilterlog.+\\[.+\\]\\s(.*)$"
+        "regex_value": "^(?i).*\sfilterlog.*\[.+\]\s(.*)$"
       },
       "condition_type": "regex",
-      "condition_value": "^(?i).*\\sfilterlog.+\\[.+\\]\\s(.*,(in|out),6,.*,udp,.*)$"
+      "condition_value": "^(?i).*\sfilterlog.+\[.+\]\s(.*,(in|out),6,.*,udp,.*)$"
     },
     {
       "title": "OPNsense: RFC5424 IPv6 ICMP",
@@ -124,11 +124,11 @@
       "source_field": "full_message",
       "target_field": "filterlog_ipv6_icmp",
       "extractor_config": {
-        "regex_value": "^(?i).*\\sfilterlog.+\\[.+\\]\\s(.*)$"
+        "regex_value": "^(?i).*\sfilterlog.*\[.+\]\s(.*)$"
       },
       "condition_type": "regex",
-      "condition_value": "^(?i).*\\sfilterlog.+\\[.+\\]\\s(.*,(in|out),6,.*,icmp,.*)$"
+      "condition_value": "^(?i).*\sfilterlog.+\[.+\]\s(.*,(in|out),6,.*,icmp,.*)$"
     }
   ],
-  "version": "4.2.2"
+  "version": "4.2.3"
 }
