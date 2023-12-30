@@ -1,10 +1,14 @@
 # Graylog-OPNsense_Extractors
 Extractors for Graylog to parse OPNsense firewall logs. Should be able to parse most all IPv4/IPv6, ICMP, UDP, & TCP messages.
 
+# Graylog Changes
+Graylog has changed the way extractors are implemented, instructions below may not be accurate for newer versions of Graylog.
+
 ## Versions
 There are two versions of the extractors, depending on how you have the OPNsense logging destination configured. OPNsense is capable of sending either RFC 5424-compliant logs or more basic syslog messages. The RFC log messages are generally preferred, as they include timezone information (instead of simply sending a bare timestamp in the local system timezone, which Graylog may misintrepret).
 
 The extractors for the two versions are similar, but because Graylog will strip some data from the message as it parses the RFC logs, we must include the full message for the extractor to parse, as detailed below.
+
 ## Usage
 1. Open Graylog. Navigate to the input you wish to run the extractor on.
 2. Click on "Manage extractors". 
@@ -20,5 +24,8 @@ The extractors for the two versions are similar, but because Graylog will strip 
 6/26/21 Update - Removed some ICMP extractors. Updated to new OPNsense log message format.
 #
 12/2/21 Update - Fixed incorrect CSV headers. Removed OPNsense-Unbound_Extractor. 
+#
+12/29/23 Update - Modified the regex for RFC 5424 messages
+
 
 
