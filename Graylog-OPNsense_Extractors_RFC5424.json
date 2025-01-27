@@ -87,6 +87,27 @@
       "condition_type": "regex",
       "condition_value": "^(?i).*\\sfilterlog\\s[0-9]+\\s.*\\[meta\\ssequenceid=\\\"[0-9]+\\\"\\]\\s(.*,(in|out),4,.*,icmp,.*)$"
     },
+     {
+      "title": "OPNsense: RFC5424 IPv4 IGMP",
+      "extractor_type": "regex",
+      "converters": [
+        {
+          "type": "csv",
+          "config": {
+            "column_header": "rule-number,sub-rule-number,anchor,tracker,interface,reason,action,direction,ip-version,tos,ecn,ttl,id,offset,flags,protocol-id,protocol-name,length,src-ip,dst-ip,datalength"
+          }
+        }
+      ],
+      "order": 6,
+      "cursor_strategy": "copy",
+      "source_field": "full_message",
+      "target_field": "filterlog_ipv4_igmp",
+      "extractor_config": {
+        "regex_value": "^(?i).*\\sfilterlog\\s[0-9]+\\s.*\\[meta\\ssequenceid=\\\"[0-9]+\\\"\\]\\s(.*)$"
+      },
+      "condition_type": "regex",
+      "condition_value": "^(?i).*\\sfilterlog\\s[0-9]+\\s.*\\[meta\\ssequenceid=\\\"[0-9]+\\\"\\]\\s(.*,(in|out),4,.*,igmp,.*)$"
+    },
     {
       "title": "OPNsense: RFC5424 IPv6 ICMP",
       "extractor_type": "regex",
@@ -129,7 +150,29 @@
       },
       "condition_type": "regex",
       "condition_value": "^(?i).*\\sfilterlog\\s[0-9]+\\s.*\\[meta\\ssequenceid=\\\"[0-9]+\\\"\\]\\s(.*,(in|out),6,.*,udp,.*)$"
+    },
+      {
+      "title": "OPNsense: RFC5424 IPv6 IGMP",
+      "extractor_type": "regex",
+      "converters": [
+        {
+          "type": "csv",
+          "config": {
+            "column_header": "rule-number,sub-rule-number,anchor,tracker,interface,reason,action,direction,ip-version,tos,ecn,ttl,id,offset,flags,protocol-id,protocol-name,length,src-ip,dst-ip,datalength"
+          }
+        }
+      ],
+      "order": 7,
+      "cursor_strategy": "copy",
+      "source_field": "full_message",
+      "target_field": "filterlog_ipv6_igmp",
+      "extractor_config": {
+        "regex_value": "^(?i).*\\sfilterlog\\s[0-9]+\\s.*\\[meta\\ssequenceid=\\\"[0-9]+\\\"\\]\\s(.*)$"
+      },
+      "condition_type": "regex",
+      "condition_value": "^(?i).*\\sfilterlog\\s[0-9]+\\s.*\\[meta\\ssequenceid=\\\"[0-9]+\\\"\\]\\s(.*,(in|out),6,.*,igmp,.*)$"
     }
   ],
-  "version": "5.2.2"
+  "version": "5.2.3"
 }
+
