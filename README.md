@@ -27,6 +27,8 @@ Graylog 5.2.2
 12/2/21 Update - Fixed incorrect CSV headers. Removed OPNsense-Unbound_Extractor. 
 #
 12/31/23 Update - Modified the regex to accomodate the 'meta sequenceID' tags
+#
+1/27/25 Update - Added IGMP extractors. Thank you github.com/drheat for your contribution
 
 
 
