@@ -7,7 +7,7 @@
         {
           "type": "csv",
           "config": {
-            "column_header": "rule-number,sub-rule-number,anchor,tracker,interface,reason,action,direction,ip-version,tos,ecn,ttl,id,offset,ip-flags,protocol-id,protocol-name,length,src-ip,dst-ip,src-port,dst-port,datalength,tcp-flags,sequence,f1,f2,tcp-options,opnsense-rid",
+            "column_header": "rule-number,sub-rule-number,anchor,uuid,interface,reason,action,direction,ip-version,tos,ecn,ttl,id,offset,ip-flags,protocol-id,protocol-name,length,src-ip,dst-ip,src-port,dst-port,datalength,tcp-flags,sequence,ack,window,urg,tcp-options",
             "trim_leading_whitespace": true
           }
         }
@@ -22,14 +22,15 @@
       "condition_type": "regex",
       "condition_value": "^(?i).*\\sfilterlog\\s[0-9]+\\s.*\\[meta\\ssequenceid=\\\"[0-9]+\\\"\\]\\s(.*,(in|out),4,.*,tcp,.*)$"
     },
-    {
+
+  {
       "title": "OPNsense: RFC5424 IPv6 TCP",
       "extractor_type": "regex",
       "converters": [
         {
           "type": "csv",
           "config": {
-            "column_header": "rule-number,sub-rule-number,anchor,tracker,interface,reason,action,direction,ip-version,tos,ecn,ttl,id,offset,flags,protocol-id,protocol-name,length,src-ip,dst-ip,datalength",
+            "column_header": "rule-number,sub-rule-number,anchor,uuid,interface,reason,action,direction,ip-version,tos,ecn,ttl,id,offset,flags,protocol-id,protocol-name,length,src-ip,dst-ip,datalength",
             "trim_leading_whitespace": true
           }
         }
@@ -51,7 +52,7 @@
         {
           "type": "csv",
           "config": {
-            "column_header": "rule-number,sub-rule-number,anchor,tracker,interface,reason,action,direction,ip-version,tos,ecn,ttl,id,offset,flags,protocol-id,protocol-name,length,src-ip,dst-ip,src-port,dst-port,opnsense-rid",
+            "column_header": "rule-number,sub-rule-number,anchor,uuid,interface,reason,action,direction,ip-version,tos,ecn,ttl,id,offset,flags,protocol-id,protocol-name,length,src-ip,dst-ip,src-port,dst-port,opnsense-rid",
             "trim_leading_whitespace": true
           }
         }
@@ -67,76 +68,13 @@
       "condition_value": "^(?i).*\\sfilterlog\\s[0-9]+\\s.*\\[meta\\ssequenceid=\\\"[0-9]+\\\"\\]\\s(.*,(in|out),4,.*,udp,.*)$"
     },
     {
-      "title": "OPNsense: RFC5424 IPv4 ICMP",
-      "extractor_type": "regex",
-      "converters": [
-        {
-          "type": "csv",
-          "config": {
-            "column_header": "rule-number,sub-rule-number,anchor,tracker,interface,reason,action,direction,ip-version,tos,ecn,ttl,id,offset,flags,protocol-id,protocol-name,length,src-ip,dst-ip,datalength"
-          }
-        }
-      ],
-      "order": 4,
-      "cursor_strategy": "copy",
-      "source_field": "full_message",
-      "target_field": "filterlog_ipv4_icmp",
-      "extractor_config": {
-        "regex_value": "^(?i).*\\sfilterlog\\s[0-9]+\\s.*\\[meta\\ssequenceid=\\\"[0-9]+\\\"\\]\\s(.*)$"
-      },
-      "condition_type": "regex",
-      "condition_value": "^(?i).*\\sfilterlog\\s[0-9]+\\s.*\\[meta\\ssequenceid=\\\"[0-9]+\\\"\\]\\s(.*,(in|out),4,.*,icmp,.*)$"
-    },
-     {
-      "title": "OPNsense: RFC5424 IPv4 IGMP",
-      "extractor_type": "regex",
-      "converters": [
-        {
-          "type": "csv",
-          "config": {
-            "column_header": "rule-number,sub-rule-number,anchor,tracker,interface,reason,action,direction,ip-version,tos,ecn,ttl,id,offset,flags,protocol-id,protocol-name,length,src-ip,dst-ip,datalength"
-          }
-        }
-      ],
-      "order": 6,
-      "cursor_strategy": "copy",
-      "source_field": "full_message",
-      "target_field": "filterlog_ipv4_igmp",
-      "extractor_config": {
-        "regex_value": "^(?i).*\\sfilterlog\\s[0-9]+\\s.*\\[meta\\ssequenceid=\\\"[0-9]+\\\"\\]\\s(.*)$"
-      },
-      "condition_type": "regex",
-      "condition_value": "^(?i).*\\sfilterlog\\s[0-9]+\\s.*\\[meta\\ssequenceid=\\\"[0-9]+\\\"\\]\\s(.*,(in|out),4,.*,igmp,.*)$"
-    },
-    {
-      "title": "OPNsense: RFC5424 IPv6 ICMP",
-      "extractor_type": "regex",
-      "converters": [
-        {
-          "type": "csv",
-          "config": {
-            "column_header": "rule-number,sub-rule-number,anchor,tracker,interface,reason,action,direction,ip-version,tos,ecn,ttl,id,offset,flags,protocol-id,protocol-name,length,src-ip,dst-ip,datalength"
-          }
-        }
-      ],
-      "order": 5,
-      "cursor_strategy": "copy",
-      "source_field": "full_message",
-      "target_field": "filterlog_ipv6_icmp",
-      "extractor_config": {
-        "regex_value": "^(?i).*\\sfilterlog\\s[0-9]+\\s.*\\[meta\\ssequenceid=\\\"[0-9]+\\\"\\]\\s(.*)$"
-      },
-      "condition_type": "regex",
-      "condition_value": "^(?i).*\\sfilterlog\\s[0-9]+\\s.*\\[meta\\ssequenceid=\\\"[0-9]+\\\"\\]\\s(.*,(in|out),6,.*,icmp,.*)$"
-    },
-    {
       "title": "OPNsense:  RFC5424 IPv6 UDP",
       "extractor_type": "regex",
       "converters": [
         {
           "type": "csv",
           "config": {
-            "column_header": "rule-number,sub-rule-number,anchor,tracker,interface,reason,action,direction,ip-version,class,flowlabel,hoplimit,protocol-name,protocol-id,length,src-ip,dst-ip,src-port,dst-port,opnsense-rid",
+            "column_header": "rule-number,sub-rule-number,anchor,uuid,interface,reason,action,direction,ip-version,class,flowlabel,hoplimit,protocol-name,protocol-id,length,src-ip,dst-ip,src-port,dst-port,opnsense-rid",
             "trim_leading_whitespace": true
           }
         }
@@ -151,14 +89,81 @@
       "condition_type": "regex",
       "condition_value": "^(?i).*\\sfilterlog\\s[0-9]+\\s.*\\[meta\\ssequenceid=\\\"[0-9]+\\\"\\]\\s(.*,(in|out),6,.*,udp,.*)$"
     },
-      {
+    {
+      "title": "OPNsense: RFC5424 IPv4 ICMP",
+      "extractor_type": "regex",
+      "converters": [
+        {
+          "type": "csv",
+          "config": {
+            "column_header": "rule-number,sub-rule-number,anchor,uuid,interface,reason,action,direction,ip-version,tos,ecn,ttl,id,offset,flags,protocol-id,protocol-name,length,src-ip,dst-ip,datalength",
+            "trim_leading_whitespace": true
+          }
+        }
+      ],
+      "order": 4,
+      "cursor_strategy": "copy",
+      "source_field": "full_message",
+      "target_field": "filterlog_ipv4_icmp",
+      "extractor_config": {
+        "regex_value": "^(?i).*\\sfilterlog\\s[0-9]+\\s.*\\[meta\\ssequenceid=\\\"[0-9]+\\\"\\]\\s(.*)$"
+      },
+      "condition_type": "regex",
+      "condition_value": "^(?i).*\\sfilterlog\\s[0-9]+\\s.*\\[meta\\ssequenceid=\\\"[0-9]+\\\"\\]\\s(.*,(in|out),4,.*,icmp,.*)$"
+    },
+    {
+      "title": "OPNsense: RFC5424 IPv6 ICMP",
+      "extractor_type": "regex",
+      "converters": [
+        {
+          "type": "csv",
+          "config": {
+            "column_header": "rule-number,sub-rule-number,anchor,uuid,interface,reason,action,direction,ip-version,class,flow,hoplimit,protocol-name,protocol-id,length,src-ip,dst-ip,datalength",
+            "trim_leading_whitespace": true
+          }
+        }
+      ],
+      "order": 5,
+      "cursor_strategy": "copy",
+      "source_field": "full_message",
+      "target_field": "filterlog_ipv6_icmp",
+      "extractor_config": {
+        "regex_value": "^(?i).*\\sfilterlog\\s[0-9]+\\s.*\\[meta\\ssequenceid=\\\"[0-9]+\\\"\\]\\s(.*)$"
+      },
+      "condition_type": "regex",
+      "condition_value": "^(?i).*\\sfilterlog\\s[0-9]+\\s.*\\[meta\\ssequenceid=\\\"[0-9]+\\\"\\]\\s(.*,(in|out),6,.*,icmp,.*)$"
+    },
+    {
+      "title": "OPNsense: RFC5424 IPv4 IGMP",
+      "extractor_type": "regex",
+      "converters": [
+        {
+          "type": "csv",
+          "config": {
+            "column_header": "rule-number,sub-rule-number,anchor,uuid,interface,reason,action,direction,ip-version,tos,ecn,ttl,id,offset,flags,protocol-id,protocol-name,length,src-ip,dst-ip,datalength",
+            "trim_leading_whitespace": true
+          }
+        }
+      ],
+      "order": 6,
+      "cursor_strategy": "copy",
+      "source_field": "full_message",
+      "target_field": "filterlog_ipv4_igmp",
+      "extractor_config": {
+        "regex_value": "^(?i).*\\sfilterlog\\s[0-9]+\\s.*\\[meta\\ssequenceid=\\\"[0-9]+\\\"\\]\\s(.*)$"
+      },
+      "condition_type": "regex",
+      "condition_value": "^(?i).*\\sfilterlog\\s[0-9]+\\s.*\\[meta\\ssequenceid=\\\"[0-9]+\\\"\\]\\s(.*,(in|out),4,.*,igmp,.*)$"
+    },
+    {
       "title": "OPNsense: RFC5424 IPv6 IGMP",
       "extractor_type": "regex",
       "converters": [
         {
           "type": "csv",
           "config": {
-            "column_header": "rule-number,sub-rule-number,anchor,tracker,interface,reason,action,direction,ip-version,tos,ecn,ttl,id,offset,flags,protocol-id,protocol-name,length,src-ip,dst-ip,datalength"
+            "column_header": "rule-number,sub-rule-number,anchor,uuid,interface,reason,action,direction,ip-version,tos,ecn,ttl,id,offset,flags,protocol-id,protocol-name,length,src-ip,dst-ip,datalength",
+            "trim_leading_whitespace": true
           }
         }
       ],
@@ -171,8 +176,51 @@
       },
       "condition_type": "regex",
       "condition_value": "^(?i).*\\sfilterlog\\s[0-9]+\\s.*\\[meta\\ssequenceid=\\\"[0-9]+\\\"\\]\\s(.*,(in|out),6,.*,igmp,.*)$"
+    },
+    {
+      "title": "OPNsense: RFC5424 IPv4 IP",
+      "extractor_type": "regex",
+      "converters": [
+        {
+          "type": "csv",
+          "config": {
+            "column_header": "rule-number,sub-rule-number,anchor,uuid,interface,reason,action,direction,ip-version,class,flow,hoplimit,protocol-name,protocol-id,length,src-ip,dst-ip,options",
+            "trim_leading_whitespace": true
+          }
+        }
+      ],
+      "order": 8,
+      "cursor_strategy": "copy",
+      "source_field": "full_message",
+      "target_field": "filterlog_ipv4_ip",
+      "extractor_config": {
+        "regex_value": "^(?i).*\\sfilterlog\\s[0-9]+\\s.*\\[meta\\ssequenceid=\\\"[0-9]+\\\"\\]\\s(.*)$"
+      },
+      "condition_type": "regex",
+      "condition_value": "^(?i).*\\sfilterlog\\s[0-9]+\\s.*\\[meta\\ssequenceid=\\\"[0-9]+\\\"\\]\\s(.*,(in|out),4,.*,ip,.*)$"
+    },
+    {
+      "title": "OPNsense: RFC5424 IPv6 IP",
+      "extractor_type": "regex",
+      "converters": [
+        {
+          "type": "csv",
+          "config": {
+            "column_header": "rule-number,sub-rule-number,anchor,uuid,interface,reason,action,direction,ip-version,class,flow,hoplimit,protocol-name,protocol-id,length,src-ip,dst-ip,options",
+            "trim_leading_whitespace": true
+          }
+        }
+      ],
+      "order": 9,
+      "cursor_strategy": "copy",
+      "source_field": "full_message",
+      "target_field": "filterlog_ipv6_ip",
+      "extractor_config": {
+        "regex_value": "^(?i).*\\sfilterlog\\s[0-9]+\\s.*\\[meta\\ssequenceid=\\\"[0-9]+\\\"\\]\\s(.*)$"
+      },
+      "condition_type": "regex",
+      "condition_value": "^(?i).*\\sfilterlog\\s[0-9]+\\s.*\\[meta\\ssequenceid=\\\"[0-9]+\\\"\\]\\s(.*,(in|out),6,.*,ip,.*)$"
     }
   ],
-  "version": "5.2.3"
+  "version": "5.0.13"
 }
-
